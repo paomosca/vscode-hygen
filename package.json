@@ -21,7 +21,16 @@
         "command": "extension.hygen",
         "title": "Hygen"
       }
-    ]
+    ],
+    "menus": {
+		  "explorer/context": [
+			{
+			  "when": "explorerResourceIsFolder",
+			  "command": "extension.hygen",
+			  "group": "Hygen@1"
+			}
+		  ]
+		}
   },
   "scripts": {
     "vscode:prepublish": "tsc -p ./",

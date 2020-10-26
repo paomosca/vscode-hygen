@@ -14,7 +14,7 @@ export function activate(_context: vscode.ExtensionContext): void {
   console.log('Hygen Extension: loaded')
   let disposable = vscode.commands.registerCommand(
     'extension.hygen',
-    async () => {
+    async (params) => {
       let workspaceRoot = vscode.workspace.rootPath
       if (!workspaceRoot) {
         vscode.window.showErrorMessage(
@@ -23,6 +23,7 @@ export function activate(_context: vscode.ExtensionContext): void {
         return
       }
       const cwd = workspaceRoot
+      const generationPath = (params ? params.path : cwd);
 
       const { templates } = await resolve({
         templates: path.join(cwd, 'templates'),
@@ -51,8 +52,10 @@ export function activate(_context: vscode.ExtensionContext): void {
         /**/
       })
       if (chosen) {
+        const paramsString = `--name=mycomponent --path=${generationPath}`;
+
         const res = await vscode.window.showInputBox({
-          value: '--name=mycomponent',
+          value: paramsString,
           valueSelection: [7, -1]
         })
         if (res) {
