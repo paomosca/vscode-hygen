@@ -1,14 +1,14 @@
 {
   "name": "vscode-hygen",
-  "displayName": "Hygen",
+  "displayName": "Hygen Extended",
   "description": "Hygen VSCode extension",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "icon": "media/hygen.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jondot/vscode-hygen.git"
+    "url": "https://github.com/paomosca/vscode-hygen.git"
   },
-  "publisher": "jondot",
+  "publisher": "paomosca",
   "engines": {
     "vscode": "^1.18.0"
   },
